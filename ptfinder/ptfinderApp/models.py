@@ -38,8 +38,8 @@ class Trainer(models.Model):
     img = models.ImageField(upload_to='trainerProfile_images',blank=True)
     price = models.CharField(max_length=10)
     
-class Bookings(models.Model):
-    #b_id = models.AutoField(unique=True)
+class Booking(models.Model):
+    #b_id = models.AutoField(primary_key)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
     t_username = models.ForeignKey(Trainer, on_delete=models.CASCADE)
     datetime = models.DateField()
@@ -50,7 +50,7 @@ class Bookings(models.Model):
         return self.id
         
 class Trainer_Comment(models.Model):
-    #tc_id = models.AutoField(unique=True)
+    #tc_id = models.AutoField(primary_key)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
     t_username = models.ForeignKey(Trainer, on_delete=models.CASCADE)
     comment = models.CharField(max_length=512)
